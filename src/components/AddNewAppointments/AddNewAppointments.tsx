@@ -66,7 +66,10 @@ export function AddNewAppointments(){
             try {
 
                 const response = await api.get("/service")
-                setService(response.data.message)
+
+                const serviceData = Array.isArray(response.data.message) ? response.data.message : []
+
+                setService(serviceData)
 
             } catch (error) {
                 console.log(error)
