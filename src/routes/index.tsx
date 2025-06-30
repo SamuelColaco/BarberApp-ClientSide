@@ -7,7 +7,7 @@ import { ClientRoutes } from "./ClientRoutes";
 
 export function AppRoutes(){
     
-    const { session, isLoading } = useAuth()
+    const { session } = useAuth()
 
     function Route(){
         switch(session?.user.role){

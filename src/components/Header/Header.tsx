@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function Header({ openSigIn }: Props) {
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, _] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     function onClick() {

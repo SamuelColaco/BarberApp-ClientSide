@@ -36,7 +36,7 @@ export function BarbersCheck(){
     path: ["confirmPassword"],
 })
 
-     async function onBarber(prevState: any, formData: FormData){
+     async function onBarber(_: any, formData: FormData){
         
         try {
 
