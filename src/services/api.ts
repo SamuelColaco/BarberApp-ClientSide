@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:3333"
+    baseURL: "https://barberapp-api-3jxo.onrender.com"
 })
 
 api.interceptors.request.use((env) => {
