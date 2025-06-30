@@ -72,7 +72,9 @@ export function ServiceBarbers(){
 
                 const response = await api.get("/service")
 
-                setServices(response.data.message)
+                const serviceData = Array.isArray(response.data.message) ? response.data.message : []
+
+                setServices(serviceData)
                 
             } catch (error) {
                 console.log(error)

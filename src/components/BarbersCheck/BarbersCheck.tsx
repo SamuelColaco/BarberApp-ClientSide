@@ -72,7 +72,9 @@ export function BarbersCheck(){
             try {
                 const response = await api.get("/user")
 
-                const filterBarbers = response.data.message.filter((barber: Barbers) => barber.role === "barber")
+                const barber = Array.isArray(response.data.message) ? response.data.message : []
+
+                const filterBarbers = barber.filter((barber: Barbers) => barber.role === "barber")
                 setBarbers(filterBarbers)
 
             } catch (error) {
