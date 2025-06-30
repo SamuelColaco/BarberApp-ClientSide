@@ -16,7 +16,6 @@ interface Appointment {
 export function AppointmentDetails(){
 
     const [appointments, setAppointments] = useState<Appointment[]>([])
-    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         async function axiosAppointment(){
@@ -36,8 +35,6 @@ export function AppointmentDetails(){
                 }
 
                 return { message: "Dont be possible check appointments"}
-            } finally{
-                setIsLoading(false)
             }
         }
 

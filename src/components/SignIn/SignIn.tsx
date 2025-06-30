@@ -1,4 +1,4 @@
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import { AppointmentButton } from "../AppointmentButton/AppointmentButton";
 import { Input } from "../Input/Input";
 import { z, ZodError } from "zod";
@@ -24,7 +24,7 @@ export function SignIn(){
     const navigate = useNavigate()
 
 
-    async function onSignIn(prevState:any, formData: FormData){
+    async function onSignIn(_:any, formData: FormData){
 
         try {
 

@@ -26,7 +26,7 @@ export function AddNewAppointments(){
 
     const auth = useAuth()
 
-    async function onAppointments(prevState: any, formData: FormData){
+    async function onAppointments(_: any, formData: FormData){
 
         try {
             

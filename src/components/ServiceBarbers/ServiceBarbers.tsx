@@ -37,7 +37,7 @@ export function ServiceBarbers(){
 
     const auth = useAuth()
 
-    async function onService(prevState: any, formData: FormData){
+    async function onService(_: any, formData: FormData){
         
         try {
 
