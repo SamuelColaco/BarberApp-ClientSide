@@ -65,9 +65,6 @@ export function ServiceBarbers(){
 
             return { message: "Don't be possible create other service" }
         } 
-        finally{
-            setIsLoaded(false)
-        }
     }
 
 
@@ -89,6 +86,9 @@ export function ServiceBarbers(){
                 }
 
                 return { message: "Don't possible list services" }
+            } 
+            finally{
+                setIsLoaded(false)
             }
         }
 
@@ -98,7 +98,7 @@ export function ServiceBarbers(){
     if(isLoaded){
         return (
             <div className="bg-[#273142] rounded-lg p-4 text-center text-white">
-                Loading appointments
+                Loading services
             </div>
         )
     }

@@ -66,9 +66,6 @@ export function BarbersCheck(){
 
             return { message: "Don't be possible create other service" }
         }
-        finally{
-            setIsLoaded(false)
-        }
     }
 
 
@@ -91,6 +88,9 @@ export function BarbersCheck(){
 
                 return { message: "Don't possible get all barbers" }
             }
+            finally{
+                setIsLoaded(false)
+            }
         }
 
         axiosBarber()
@@ -100,7 +100,7 @@ export function BarbersCheck(){
       if(isLoaded){
         return (
             <div className="bg-[#273142] rounded-lg p-4 text-center text-white">
-                Loading appointments
+                Loading Barbers
             </div>
         )
     }
