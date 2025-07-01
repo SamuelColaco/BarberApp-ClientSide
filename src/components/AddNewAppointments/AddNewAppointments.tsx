@@ -84,6 +84,7 @@ export function AddNewAppointments(){
 
         axiosService()
     }, [])
+
     return(
         <div className="flex flex-col items-center justify-center p-4">
   <div className="flex flex-col gap-6 md:gap-10 bg-[#273142] rounded-lg p-5 md:p-7 w-full max-w-md lg:max-w-xl">

@@ -13,6 +13,8 @@ export function ClientView(){
 
     const [client, setClient] = useState<Client[]>([])
 
+    const [isLoaded, setIsLoaded] = useState(true)
+
     useEffect(() => {
         async function axiosClient(){
             try {
@@ -32,10 +34,22 @@ export function ClientView(){
 
                 return { message: "Don't be possible view clients"}
             }
+            finally{
+                setIsLoaded(true)
+            }
         }
 
         axiosClient()
     }, [])
+
+    
+    if(isLoaded){
+        return (
+            <div className="bg-[#273142] rounded-lg p-4 text-center text-white">
+                Loading clients
+            </div>
+        )
+    }
 
     return (
         <div>

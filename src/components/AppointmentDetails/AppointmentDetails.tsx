@@ -17,6 +17,8 @@ export function AppointmentDetails(){
 
     const [appointments, setAppointments] = useState<Appointment[]>([])
 
+    const [isLoad, setIsLoad] = useState(true)
+
     useEffect(() => {
         async function axiosAppointment(){
             try {
@@ -35,11 +37,23 @@ export function AppointmentDetails(){
                 }
 
                 return { message: "Dont be possible check appointments"}
+            }  
+            finally{
+                setIsLoad(false)
             }
         }
 
         axiosAppointment()
     }, [])
+
+    
+    if(isLoad){
+        return (
+            <div className="bg-[#273142] rounded-lg p-4 text-center text-white">
+                Loading appointments
+            </div>
+        )
+    }
 
     function convertToBrazilTimeZone(date: string){
 
