@@ -23,7 +23,7 @@ export function BarbersCheck(){
 
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const [isLoad, setIsLoad] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(true)
 
     const [state, formAction, isLoading] = useActionState(onBarber, null)
 
@@ -41,8 +41,6 @@ export function BarbersCheck(){
      async function onBarber(_: any, formData: FormData){
         
         try {
-
-            setIsLoad(true)
 
             const dataBarber = barberSchema.parse({
                 name: formData.get("name"),
@@ -69,7 +67,7 @@ export function BarbersCheck(){
             return { message: "Don't be possible create other service" }
         }
         finally{
-            setIsLoad(false)
+            setIsLoaded(false)
         }
     }
 
@@ -99,7 +97,7 @@ export function BarbersCheck(){
 
     }, [])
 
-      if(isLoad){
+      if(isLoaded){
         return (
             <div className="bg-[#273142] rounded-lg p-4 text-center text-white">
                 Loading appointments

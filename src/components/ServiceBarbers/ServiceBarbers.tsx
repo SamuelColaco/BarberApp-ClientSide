@@ -24,7 +24,7 @@ export function ServiceBarbers(){
     
     const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const [isLoad, setIsLoad] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(true)
 
     const serviceSchema = z.object({
         name: z.string().trim().min(1, { message: "Need min 1 caracter"}),
@@ -42,8 +42,6 @@ export function ServiceBarbers(){
     async function onService(_: any, formData: FormData){
         
         try {
-
-            setIsLoad(true)
 
             const data = serviceSchema.parse({
                 name: formData.get("title"),
@@ -68,7 +66,7 @@ export function ServiceBarbers(){
             return { message: "Don't be possible create other service" }
         } 
         finally{
-            setIsLoad(false)
+            setIsLoaded(false)
         }
     }
 
@@ -97,7 +95,7 @@ export function ServiceBarbers(){
         axiosServices()
     }, [])
 
-    if(isLoad){
+    if(isLoaded){
         return (
             <div className="bg-[#273142] rounded-lg p-4 text-center text-white">
                 Loading appointments
