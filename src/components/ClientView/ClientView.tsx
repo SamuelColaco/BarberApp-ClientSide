@@ -35,7 +35,7 @@ export function ClientView(){
                 return { message: "Don't be possible view clients"}
             }
             finally{
-                setIsLoaded(true)
+                setIsLoaded(false)
             }
         }
 
