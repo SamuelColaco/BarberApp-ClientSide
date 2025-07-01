@@ -23,6 +23,8 @@ export function BarbersCheck(){
 
     const [isModalOpen, setIsModalOpen] = useState(false)
 
+    const [isLoad, setIsLoad] = useState(false)
+
     const [state, formAction, isLoading] = useActionState(onBarber, null)
 
     const barberSchema = z.object({
@@ -39,6 +41,8 @@ export function BarbersCheck(){
      async function onBarber(_: any, formData: FormData){
         
         try {
+
+            setIsLoad(true)
 
             const dataBarber = barberSchema.parse({
                 name: formData.get("name"),
@@ -63,6 +67,9 @@ export function BarbersCheck(){
             }
 
             return { message: "Don't be possible create other service" }
+        }
+        finally{
+            setIsLoad(false)
         }
     }
 
@@ -91,6 +98,14 @@ export function BarbersCheck(){
         axiosBarber()
 
     }, [])
+
+      if(isLoad){
+        return (
+            <div className="bg-[#273142] rounded-lg p-4 text-center text-white">
+                Loading appointments
+            </div>
+        )
+    }
 
      return (
             <div>
