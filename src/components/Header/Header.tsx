@@ -38,11 +38,10 @@ export function Header({ openSigIn }: Props) {
                 </svg>
             </button>
 
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 text-gray-500">
-                <a href="/" className="hover:text-white transition ease-linear">Home</a>
-                <a href="/service" className="hover:text-white transition ease-linear">Services</a>
-                <a href="/" className="hover:text-white transition ease-linear">Contact Us</a>
-                <a href="/about" className="hover:text-white transition ease-linear">About Us</a>
+            <nav className="hidden md:flex items-center gap-6 lg:gap-12 xl:gap-20 text-gray-500">
+                    <a href="/" className="hover:text-white transition ease-linear">Home</a>
+                    <a href="/service" className="hover:text-white transition ease-linear">Services</a>
+                    <a href="/about" className="hover:text-white transition ease-linear">About Us</a>
             </nav>
 
             <div className="hidden md:block">
@@ -56,7 +55,6 @@ export function Header({ openSigIn }: Props) {
                     <nav className="flex flex-col items-center gap-4 text-gray-500">
                         <a href="/" className="hover:text-white transition ease-linear w-full text-center py-2">Home</a>
                         <a href="/service" className="hover:text-white transition ease-linear w-full text-center py-2">Services</a>
-                        <a href="/" className="hover:text-white transition ease-linear w-full text-center py-2">Contact Us</a>
                         <a href="/about" className="hover:text-white transition ease-linear w-full text-center py-2">About Us</a>
                         <div className="w-full pt-2">
                             <AppointmentButton 
