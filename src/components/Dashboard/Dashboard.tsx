@@ -8,10 +8,10 @@ import iconIconStatics from "../../assets/imgs/Icon (4).png"
 
 import iconIconPending from "../../assets/imgs/Icon (5).png"
 
-import sales from "../../assets/imgs/Sales Details.png"
 import { useEffect, useState } from "react";
 import { AxiosError } from "axios";
 import api from "../../services/api";
+import {  AppointmentChart } from "../AppointmentsChart/AppointmentsChart";
 
 interface Users{
     id: string
@@ -88,8 +88,8 @@ export function Dashboard(){
                 <InformationStatics total="Total pendigs" number="230" image={iconIconPending} />
             </div>
 
-            <div className="text-center p-5 ">
-                <img src={sales} alt="detalhes de vendas" className=" hidden md:block" />
+            <div className="text-center p-5 hidden md:block">
+                <AppointmentChart />
             </div>
         </div>
     )
