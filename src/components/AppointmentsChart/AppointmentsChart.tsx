@@ -6,12 +6,12 @@ import 'chartjs-adapter-date-fns';
 import api from '../../services/api';
 
 interface Appointment {
-  id: string;
-  serviceName: string;
-  barberName: string;
-  date: string; // ISO format (e.g., "2023-07-03")
-  hour: string;
-  status: 'pending' | 'confirmed' | 'canceled';
+  id: string
+  serviceName: string
+  barberName: string
+  date: string
+  hour: string
+  status: 'pending' | 'confirmed' | 'canceled'
 }
 
 export function AppointmentChart() {
@@ -39,24 +39,24 @@ export function AppointmentChart() {
   useEffect(() => {
     if (!chartRef.current || appointments.length === 0) return;
 
-    // Contar agendamentos por data
     const appointmentsByDate: Record<string, number> = {};
+
 
     appointments.forEach((appointment) => {
       const date = appointment.date.split('T')[0];
       appointmentsByDate[date] = (appointmentsByDate[date] || 0) + 1;
     });
 
-    // Converter para array de objetos Date e ordenar
+
     const sortedData = Object.entries(appointmentsByDate)
       .map(([date, count]) => ({
-        date: parseISO(date), // Converter para objeto Date usando parseISO
+        date: parseISO(date), 
         count
       }))
       .sort((a, b) => a.date.getTime() - b.date.getTime());
 
+
     const data = {
-      // Usar objetos Date diretamente nos labels
       labels: sortedData.map(item => item.date),
       datasets: [{
         label: 'Agendamentos',
@@ -65,7 +65,7 @@ export function AppointmentChart() {
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1
       }]
-    };
+    }
 
     const config: ChartConfiguration<'bar', number[], Date> = {
       type: 'bar',
@@ -78,7 +78,7 @@ export function AppointmentChart() {
             time: {
               unit: 'day',
               displayFormats: {
-                day: 'd MMM' // Formato: "3 Jul"
+                day: 'd MMM' 
               },
               tooltipFormat: 'dd/MM/yyyy'
             },
@@ -107,8 +107,8 @@ export function AppointmentChart() {
           tooltip: {
             callbacks: {
               title: (context) => {
-                const date = new Date(context[0].label);
-                return format(date, 'PPPP', { locale: ptBR }); // Formato completo
+                const date = new Date(context[0].label)
+                return format(date, 'PPPP', { locale: ptBR })
               },
               label: (context) => {
                 return `${context.parsed.y} agendamentos`;
@@ -124,12 +124,12 @@ export function AppointmentChart() {
     return () => myChart.destroy();
   }, [appointments]);
 
-  if (loading) return <div>Carregando...</div>;
-  if (appointments.length === 0) return <div>Nenhum agendamento encontrado</div>;
+  if (loading) return <div>Carregando...</div>
+  if (appointments.length === 0) return <div>Nenhum agendamento encontrado</div>
 
   return (
-    <div style={{ width: '100%', maxWidth: '800px' }}>
-      <h2>Agendamentos</h2>
+    <div style={{ width: '100%', maxWidth: '1200px' }}>
+      <h2 className='text-2xl text-white'>Agendamentos</h2>
       <canvas ref={chartRef} />
     </div>
   );

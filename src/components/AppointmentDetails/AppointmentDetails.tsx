@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AxiosError } from "axios";
-import { format, toZonedTime } from "date-fns-tz"
+import { format } from "date-fns-tz"
 import { ptBR } from "date-fns/locale"
 import api from "../../services/api";
 
@@ -57,18 +57,23 @@ export function AppointmentDetails(){
 
     function convertToBrazilTimeZone(date: string){
 
-            const dataUtc = new Date(date)
-            const timeZone = 'America/Sao_Paulo'
+            const dateOnly = date.split('T')[0]
 
-            const dateBrazil = toZonedTime(dataUtc, timeZone)
+            const [year, month, day] = dateOnly.split('-')
+
+            const dataUtc = new Date(
+                parseInt(year),
+                parseInt(month) - 1,
+                parseInt(day)
+            )
             
-            return format(dateBrazil, 'dd/MM/yyyy', {
-                timeZone,
+            return format(dataUtc, 'dd/MM/yyyy', {
                 locale: ptBR
             })
     }
 
     return (
+
         <div className="bg-[#273142] rounded-lg p-2 sm:p-4">
         <div className="text-white text-xl sm:text-2xl md:text-3xl p-3">
             <h1>Deals Details</h1>

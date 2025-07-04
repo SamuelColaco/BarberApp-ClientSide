@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { AxiosError } from "axios";
-import { format,  toZonedTime } from "date-fns-tz";
+import { format } from "date-fns-tz";
 import { ptBR } from "date-fns/locale";
 import { Appointments } from "../Appointments/Appointments";
 import { useAuth } from "../../hooks/useAuth";
 
 interface Appointment {
-  id: string;
-  serviceName: string;
-  barberName: string;
-  date: string;
-  hour: string;
-  status: 'pending' | 'confirmed' | 'canceled';
+  id: string
+  serviceName: string
+  barberName: string
+  date: string
+  hour: string
+  status: 'pending' | 'confirmed' | 'canceled'
 }
 
 
@@ -53,13 +53,17 @@ export function ClientAppointmentYourDetails(){
 
     function convertToBrazilTimeZone(date: string){
 
-            const dataUtc = new Date(date)
-            const timeZone = 'America/Sao_Paulo'
+            const dateOnly = date.split('T')[0]
 
-            const dateBrazil = toZonedTime(dataUtc, timeZone)
+            const [year, month, day] = dateOnly.split('-')
+
+            const dataUtc = new Date(
+                parseInt(year),
+                parseInt(month) - 1,
+                parseInt(day)
+            )
             
-            return format(dateBrazil, 'dd/MM/yyyy', {
-                timeZone,
+            return format(dataUtc, 'dd/MM/yyyy', {
                 locale: ptBR
             })
     }
