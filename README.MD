@@ -1,6 +1,5 @@
 # ✂️ BarberApp - Agendamento para Barbearias  
 
-![BarberApp Preview](https://barber-app-black.vercel.app/)  
 *Uma solução moderna para agendamento em barbearias.*  
 
 ## 🚀 **Demo Online**  
