@@ -43,9 +43,8 @@ barber-app/
 ```
 ---
 
-## ✉️ Contatos
 
-## ✉️ **Contato**
+## ✉️ **Contatos**
 
 **Samuel Colaço** - Desenvolvedor FullStack  
 
