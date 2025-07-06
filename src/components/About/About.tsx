@@ -32,8 +32,8 @@ export function About(){
                         <Barbers name="Rodrigo" />
                         <Barbers name="Jorge" />
                         <Barbers name="Dorinico" />
-                        <Barbers name="Edu" />
-                        <Barbers name="Maru" />
+                        <Barbers name="Mauricio" />
+                        <Barbers name="Mari" />
 
                     </div>
                 </div>
